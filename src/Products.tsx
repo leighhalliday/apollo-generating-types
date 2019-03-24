@@ -44,11 +44,11 @@ export default function Products() {
 
   return (
     <div>
-      {data.products.edges.map(({ node: product }) => (
+      {data.products.edges.map(({ node: product }: any) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
           <ul className="images">
-            {product.images.edges.map(({ node: image }, index) => (
+            {product.images.edges.map(({ node: image }: any, index: number) => (
               <li className="image-item" key={image.id || index}>
                 <img src={image.transformedSrc} />
               </li>
