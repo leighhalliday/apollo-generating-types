@@ -1,6 +1,8 @@
 import React from "react";
-import { useQuery } from "react-apollo-hooks";
+import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import { ProductsData, ProductsDataVariables } from "./generated/ProductsData";
+import { ImageContentType } from "./generated/globalTypes";
 
 const PRODUCTS_QUERY = gql`
   query ProductsData($preferredContentType: ImageContentType) {
@@ -32,30 +34,38 @@ const PRODUCTS_QUERY = gql`
   }
 `;
 
+class ProductsQuery extends Query<ProductsData, ProductsDataVariables> {}
+
 export default function Products() {
-  const { data, loading } = useQuery(PRODUCTS_QUERY, {
-    variables: { preferredContentType: "JPG" },
-    ssr: false
-  });
-
-  if (loading || !data) {
-    return <div>Loading products...</div>;
-  }
-
   return (
-    <div>
-      {data.products.edges.map(({ node: product }: any) => (
-        <div key={product.id}>
-          <h2>{product.title}</h2>
-          <ul className="images">
-            {product.images.edges.map(({ node: image }: any, index: number) => (
-              <li className="image-item" key={image.id || index}>
-                <img src={image.transformedSrc} />
-              </li>
+    <ProductsQuery
+      query={PRODUCTS_QUERY}
+      variables={{ preferredContentType: ImageContentType.JPG }}
+    >
+      {({ data, loading }) => {
+        if (loading || !data) {
+          return <div>Loading products...</div>;
+        }
+
+        return (
+          <div>
+            {data.products.edges.map(({ node: product }) => (
+              <div key={product.id}>
+                <h2>{product.title}</h2>
+                <ul className="images">
+                  {product.images.edges.map(
+                    ({ node: image }, index: number) => (
+                      <li className="image-item" key={image.id || index}>
+                        <img src={image.transformedSrc} />
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
             ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+          </div>
+        );
+      }}
+    </ProductsQuery>
   );
 }

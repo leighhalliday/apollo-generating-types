@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "apollo:generate": "apollo codegen:generate",
+    "apollo:generate": "apollo codegen:generate --target typescript --excludes=node_modules/* --includes=**/*.tsx --endpoint https://graphql.myshopify.com/api/graphql --header \"X-Shopify-Storefront-Access-Token: 078bc5caa0ddebfa89cccb4a1baa1f5c\" --tagName=gql --outputFlat src/generated --passthroughCustomScalars --customScalarsPrefix Shopify",
     "typescript:check": "tsc"
   },
   "eslintConfig": {
