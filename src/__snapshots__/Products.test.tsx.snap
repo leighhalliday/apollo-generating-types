@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot using seeds 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="result"
+  >
+    <div>
+      <h2>
+        Hello World
+      </h2>
+      <p>
+        ID bb463b8b-b76c-4f6a-9726-65ab5730b69b
+      </p>
+      <ul
+        class="images"
+      >
+        <li
+          class="image-item"
+        >
+          <img
+            src="https://www.shopify.com"
+          />
+        </li>
+        <li
+          class="image-item"
+        >
+          <img
+            src="https://www.shopify.com"
+          />
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>
+        Hello World
+      </h2>
+      <p>
+        ID 7f3869c1-7dc9-4486-9045-6bade487a49d
+      </p>
+      <ul
+        class="images"
+      >
+        <li
+          class="image-item"
+        >
+          <img
+            src="https://www.shopify.com"
+          />
+        </li>
+        <li
+          class="image-item"
+        >
+          <img
+            src="https://www.shopify.com"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
