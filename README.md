@@ -11,3 +11,7 @@ Video: [https://www.youtube.com/watch?v=1PVrZNi3sb8](https://www.youtube.com/wat
 ## Static Mocks using MockedProvider
 
 Video: [https://www.youtube.com/watch?v=ccDpUt9ipxo](https://www.youtube.com/watch?v=ccDpUt9ipxo)
+
+## Dynamic Mocks
+
+Video: [https://youtu.be/FKA5iNYpd_8](https://youtu.be/FKA5iNYpd_8)
